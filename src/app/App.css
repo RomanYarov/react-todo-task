@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  background-color: #90B9C6;
+}
+
+h3,ul,p{
+  margin: 0;
+  padding: 0;
+}
+li{list-style-type: none;}
+
+.container{
+  width: 400px;
+  margin: 10px auto;
+}
+
+
+
