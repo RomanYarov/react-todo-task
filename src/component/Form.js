@@ -56,7 +56,6 @@ class TaskForm extends Component {
         else
             this.props.getCategoriesListAction.updateTodo(fieldsState);
 
-        /* затираем локальый стейт */
         this.setState({id: 0, taskName:'',taskText:'', important: 'normal', dataComplete: moment(), dataImportant: '', btnSubmitName: "Добавить"});
     };
 
@@ -131,7 +130,6 @@ class TaskForm extends Component {
     }
 }
 
-/*фун-я прокид-ет redux-store в компонент ч/з props*/
 const mapStateToProps = ({task = {}}) => {
     const { editItem } = task;
 
@@ -140,13 +138,10 @@ const mapStateToProps = ({task = {}}) => {
     };
 };
 
-/*фун-я прокид-ет action в компонент ч/з props*/
-/* dispatch - позволяет отправлять 'action' в 'store' */
 const mapDispatchToProps = dispatch =>({
     getCategoriesListAction:bindActionCreators(getCategoriesList, dispatch),
 });
 
-// определяет какие св-ва из state попадут в TaskForm (в property application)
 export default connect(
     mapStateToProps,
     mapDispatchToProps
