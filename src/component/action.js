@@ -2,8 +2,9 @@ export const Events = {
     ADD_TASK: 'ADD_TASK',
     EDIT_TASK: 'EDIT_TASK',
     DELETE_TASK: 'DELETE_TASK',
-    TOGGLE_ITEM: 'TOGGLE_ITEM',
+    CLEAR_EDIT: 'CLEAR_EDIT',
     UPDATE_TASK: 'UPDATE_TASK',
+    TOGGLE_ITEM: 'TOGGLE_ITEM',
     FILTER_ITEMS: 'FILTER_ITEMS'
 };
 
@@ -59,6 +60,14 @@ export function updateTodo(fieldsState){
     };
 }
 
+export function clearTodo(){
+    return (dispatch) =>{
+        return dispatch({
+            type: Events.CLEAR_EDIT
+        });
+    };
+}
+
 export function toggleTodo(dataItem) {
     return (dispatch) =>{
         return dispatch({
@@ -66,7 +75,7 @@ export function toggleTodo(dataItem) {
             payload: {
                 id: dataItem.id,
                 completed: dataItem.completed,
-                dataImportant: dataItem.dataImportant
+                nowData: Date.now()
             }
 
 
@@ -78,7 +87,7 @@ export function filterItems(typeFilter) {
     return (dispatch) =>{
         return dispatch({
             type: Events.FILTER_ITEMS,
-            payload: { typeFilter }
+            filter: typeFilter
         })
     }
 }

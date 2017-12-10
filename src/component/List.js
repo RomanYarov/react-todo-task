@@ -6,7 +6,8 @@ import * as getCategoriesList from './action';
 import './List.css'
 
 class TaskList extends Component {
-    handleDelTask(id){
+    handleDelTask (id) {
+        console.log('ups click DELETE?!');
         this.props.getCategoriesListAction.delTodo(id);
     }
 
@@ -14,7 +15,7 @@ class TaskList extends Component {
         this.props.getCategoriesListAction.toggleTodo(dataItem);
     }
 
-    handleEditTask(id){
+    handleEditTask(id) {
         this.props.getCategoriesListAction.editTodo(id);
     };
 
@@ -24,7 +25,7 @@ class TaskList extends Component {
         this.props.getCategoriesListAction.filterItems(event.target.name);
     };
 
-    handleDataFormat = (data)=> {
+    handleDataFormat = (data)=>{
         if(data){
             let _data = new Date(data);
             let dd = _data.getDate();
@@ -44,15 +45,18 @@ class TaskList extends Component {
 
     completeClass = (completed, dataCompleted) => {
         let str = 'list_group';
-        if(completed)
+        if(completed){
             str+=' list_complete';
-        if((new Date(dataCompleted).getTime() < new Date().getTime())&& !completed)
+        }
+        if((new Date(dataCompleted).getTime() < new Date().getTime()) && !completed){
             str+=' list_delayComplete';
+        }
         return str;
     };
 
     render() {
         const { listItem = [], editItem = {} } = this.props.task;
+        console.log('new sate',listItem);
         return (
             <div>
                 <div className='list_filter'>

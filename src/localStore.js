@@ -1,5 +1,5 @@
 const nameKeyStore = 'todo_task';
-export const get = () => JSON.parse(localStorage.getItem(nameKeyStore)) || undefined;
+export const get = () => JSON.parse(localStorage.getItem(nameKeyStore)) || {};
 export const set = (state, props) => {
     let toSave = {};
     props.forEach(p => toSave[p] = state[p]);

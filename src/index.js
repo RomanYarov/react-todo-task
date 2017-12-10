@@ -11,6 +11,7 @@ import * as localStore from "./localStore";
 const takeStore = store();
 
 takeStore.subscribe(() => {
+    //????
     localStore.set(takeStore.getState(), ['task']);
 });
 
